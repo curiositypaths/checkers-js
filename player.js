@@ -1,7 +1,8 @@
 class Player {
-  constructor(color) {
+  constructor(color, board) {
     this.color = color
     this.pieces = this.generatePieces()
+    this.board = board
   }
   generatePieces() {
     let piecesContainer = []
@@ -10,4 +11,11 @@ class Player {
     }
     return piecesContainer
   }
+
+  placePieces() {
+    for (var i = 0; i < thispieces.length; i++) {
+      thispieces[i]
+    }
+  }
+
 }

@@ -30,4 +30,18 @@ body {
   background: black;
 }
 
+.piece {
+ width: 75%;
+ height: 75%;
+ margin:auto;
+ margin-top:12.5%;
+ border-radius: 50%;
+}
 
+.piece-blue {
+ background: #3295E6 ;
+}
+
+.piece-red {
+ background: #D92626 ;
+}

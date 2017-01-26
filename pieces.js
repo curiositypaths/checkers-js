@@ -6,4 +6,13 @@ class Piece {
   alive() {
     return this.cell !== null
   }
+
+  receiveCell(cell) {
+    this.cell = cell
+  }
+
+  removeCell() {
+    this.cell = null
+  }
+  
 }

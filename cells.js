@@ -15,10 +15,29 @@ class Cell {
   receivePiece(piece) {
     this.piece = piece
   }
+
   removePiece(piece) {
     this.piece = null
   }
+
   occupied() {
-    this.piece === null ? false : true
+    return this.piece === null ? false : true
   }
+
+  render() {
+
+    if (this.occupied()) {
+      if ( $(`#${this.id}`)[0].childNodes.length === 0 ) {
+        //render a piece *** in future check if that piece is a king
+        $(`#${this.id}`).append("<div class='piece piece-" + `${this.piece.player.color}` + "'></div>")
+      }
+    }
+    else {
+      if ( $(`#${this.id}`)[0].childNodes.length === 1 ) {
+        //take away a piece *** in future check if that piece is a king
+        $(`#${this.id}`)[0].childNodes[0].remove()
+      }
+    }
+  }
+
 }
