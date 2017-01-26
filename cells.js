@@ -10,7 +10,6 @@ class Cell {
     else {
       return this.id % 2 === 0 ? 'black' : 'white'
     }
-
   }
 
   receivePiece(piece) {

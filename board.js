@@ -12,6 +12,7 @@ class Board {
       this.cells.push(new Cell(i))
     }
   }
+
   generateBoard() {
     let gameBoard = []
     this.cells.forEach(function (cell) {
@@ -28,6 +29,3 @@ class Board {
 
   }
 }
-
-var board = new Board
-board.generateBoard()
