@@ -11,11 +11,4 @@ class Player {
     }
     return piecesContainer
   }
-
-  placePieces() {
-    for (var i = 0; i < thispieces.length; i++) {
-      thispieces[i]
-    }
-  }
-
 }

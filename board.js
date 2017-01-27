@@ -33,33 +33,31 @@ class Board {
   };
 
   placePieces() {
+    var count = 0
     for (let i = 0; i < this.players[0].pieces.length * 2; i+=2) {
       if ( Math.floor(i / 8) % 2 === 0 ) {
-        for (let p = 0; p < this.players[0].pieces.length; p++) {
-          this.cells[i].receivePiece(this.players[0].pieces[p])
-          this.players[0].pieces[p].receiveCell(this.cells[i])
-        }
+        this.cells[i].receivePiece(this.players[0].pieces[count])
+        this.players[0].pieces[count].receiveCell(this.cells[i])
+        count++
       }
       else {
-        for (let p = 0; p < this.players[0].pieces.length; p++) {
-          this.cells[i+1].receivePiece(this.players[0].pieces[p])
-          this.players[0].pieces[p].receiveCell(this.cells[i+1])
-        }
+        this.cells[i+1].receivePiece(this.players[0].pieces[count])
+        this.players[0].pieces[count].receiveCell(this.cells[i+1])
+        count++
       }
     }
-
+    count = 0
     for (let i = this.size * this.size - 1; i >= this.size * this.size - this.players[1].pieces.length * 2; i-=2) {
-      for (let p = 0; p < this.players[1].pieces.length; p++) {
         if ( Math.floor(i / 8) % 2 === 0 ) {
-          this.cells[i-1].receivePiece(this.players[1].pieces[p])
-          this.players[1].pieces[p].receiveCell(this.cells[i-1])
+          this.cells[i-1].receivePiece(this.players[1].pieces[count])
+          this.players[1].pieces[count].receiveCell(this.cells[i-1])
+          count++
         }
         else {
-          this.cells[i].receivePiece(this.players[1].pieces[p])
-          this.players[1].pieces[p].receiveCell(this.cells[i])
+          this.cells[i].receivePiece(this.players[1].pieces[count])
+          this.players[1].pieces[count].receiveCell(this.cells[i])
+          count++
         }
-
-      }
     }
   }
 
