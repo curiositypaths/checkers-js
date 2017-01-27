@@ -4,6 +4,10 @@ class Checkers {
   }
 
   validMove(destination,piece) {
+    // debugger
+    // if (!this.cellIsFree(destination)) {
+    //   return false
+    // }
     var leftColumn = piece.cell.id % 8 === 0
     var rightColumn = (piece.cell.id + 1) % 8 === 0
     var upLeft = (destination.id === piece.cell.id - 9) && !leftColumn
@@ -24,5 +28,9 @@ class Checkers {
       default:
         throw new Error("Perhaps no direction set")
     }
+  }
+
+  cellIsFree(destination) {
+    destination.piece === null
   }
 }

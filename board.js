@@ -67,4 +67,38 @@ class Board {
     }
   }
 
+  // markCellsAsDroppable() {
+  //   $('.white').droppable({
+  //   accept: '.piece',
+  //   drop: function(event, ui) {
+  //     debugger
+  //     var dropped = ui.draggable;
+  //     var droppedOn = $(this);
+  //     board.dropIfValid(dropped,droppedOn)
+  //   }})
+  // }
+
+  // dropIfValid(dropped,droppedOn) {
+  //   $(dropped).detach().css({top: 0,left: 0}).appendTo(droppedOn);
+  // }
+
+
+
+  // markPiecesAsDraggable() {
+  //   $('.piece').draggable({cursor: 'crosshair', revert:'invalid'})
+  //   $('.piece').on('dragstart',function() {board.pieceBeingMoved = event.target.id})
+  // }
+
+  status(piece, cell) {
+    var objCell = board.cells[parseInt(cell[0].getAttribute('id'))]
+    var objPiece = findPiece(piece)
+    return board.game.validMove(objCell, objPiece)
+  }
+
+
+
+
+
 }
+
+

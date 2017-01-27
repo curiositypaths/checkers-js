@@ -7,7 +7,7 @@ class Player {
   generatePieces() {
     let piecesContainer = []
     for (let i=0 ; i < 12 ; i++) {
-      piecesContainer.push(new Piece(this))
+      piecesContainer.push(new Piece(this,`${this.color}-${i}`))
     }
     return piecesContainer
   }

@@ -29,7 +29,7 @@ class Cell {
     if (this.occupied()) {
       if ( $(`#${this.id}`)[0].childNodes.length === 0 ) {
         //render a piece *** in future check if that piece is a king
-        $(`#${this.id}`).append("<div class='piece piece-" + `${this.piece.player.color}` + "'></div>")
+        $(`#${this.id}`).append("<div id='" + `${this.piece.id}` + "' class='piece piece-" + `${this.piece.player.color}` + "'></div>")
       }
     }
     else {

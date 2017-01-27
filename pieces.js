@@ -1,9 +1,10 @@
 class Piece {
-  constructor(player,cell = null) {
+  constructor(player,id,cell = null) {
     this.player = player
     this.cell = cell
     this.king = false
     this.direction = this.allowedDirection()
+    this.id = id
   }
   alive() {
     return this.cell !== null
