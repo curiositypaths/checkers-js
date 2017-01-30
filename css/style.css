@@ -1,13 +1,25 @@
 body {
   padding:0px;
   margin:0px;
+  background-image: url('../images/felt.jpg');
+  background-repeat: repeat;
+}
+
+.frame {
+  width: 900px;
+  height: 900px;
+  margin: auto;
+  margin-top:50px;
+  background-image: url('../images/wood.png');
+  background-repeat: repeat;
+  border-radius: 10px;
 }
 
 .container {
   width: 800px;
   height: 800px;
   margin: auto;
-  margin-top:50px;
+  padding-top:50px;
 }
 
 .row {

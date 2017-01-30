@@ -73,19 +73,13 @@ class Checkers {
       case 'down':
         if  ( downLeft ) {
           if ( board.cells[piece.cell.id + 9].piece !== null && board.cells[piece.cell.id + 9].piece.player.color !== piece.player.color) {
-            board.turn += 1;
-            board.lastPieceThatJumpped = piece;
-            board.cells[piece.cell.id + 9].removePiece()
-            board.cells[piece.cell.id + 9].render()
+            this.removeJumpedPiece(9,piece)
             return true
           }
         }
         else if ( downRight ) {
           if ( board.cells[piece.cell.id + 7].piece !== null && board.cells[piece.cell.id + 7].piece.player.color !== piece.player.color) {
-            board.turn += 1;
-            board.lastPieceThatJumpped = piece;
-            board.cells[piece.cell.id + 7].removePiece()
-            board.cells[piece.cell.id + 7].render()
+            this.removeJumpedPiece(7,piece)
             return true
           }
         }
@@ -96,19 +90,13 @@ class Checkers {
       case 'up':
       if  ( upLeft ) {
         if ( board.cells[piece.cell.id - 9].piece !== null && board.cells[piece.cell.id - 9].piece.player.color !== piece.player.color) {
-          board.turn += 1;
-          board.lastPieceThatJumpped = piece;
-          board.cells[piece.cell.id - 9].removePiece()
-          board.cells[piece.cell.id - 9].render()
+          this.removeJumpedPiece(-9,piece)
           return true
         }
       }
       else if ( upRight ) {
         if ( board.cells[piece.cell.id - 7].piece !== null && board.cells[piece.cell.id - 7].piece.player.color !== piece.player.color) {
-          board.turn += 1;
-          board.lastPieceThatJumpped = piece;
-          board.cells[piece.cell.id - 7].removePiece()
-          board.cells[piece.cell.id - 7].render()
+          this.removeJumpedPiece(-7,piece)
           return true
         }
       }
@@ -119,37 +107,25 @@ class Checkers {
       case 'upanddown':
       if  ( upLeft ) {
         if ( board.cells[piece.cell.id - 9].piece !== null && board.cells[piece.cell.id - 9].piece.player.color !== piece.player.color) {
-          board.turn += 1;
-          board.lastPieceThatJumpped = piece;
-          board.cells[piece.cell.id - 9].removePiece()
-          board.cells[piece.cell.id - 9].render()
+          this.removeJumpedPiece(-9,piece)
           return true
         }
       }
       else if ( upRight ) {
         if ( board.cells[piece.cell.id - 7].piece !== null && board.cells[piece.cell.id - 7].piece.player.color !== piece.player.color) {
-          board.turn += 1;
-          board.lastPieceThatJumpped = piece;
-          board.cells[piece.cell.id - 7].removePiece()
-          board.cells[piece.cell.id - 7].render()
+          this.removeJumpedPiece(-7,piece)
           return true
         }
       }
       else if  ( downLeft ) {
         if ( board.cells[piece.cell.id + 9].piece !== null && board.cells[piece.cell.id + 9].piece.player.color !== piece.player.color) {
-          board.turn += 1;
-          board.lastPieceThatJumpped = piece;
-          board.cells[piece.cell.id + 9].removePiece()
-          board.cells[piece.cell.id + 9].render()
+          this.removeJumpedPiece(9,piece)
           return true
         }
       }
       else if ( downRight ) {
         if ( board.cells[piece.cell.id + 7].piece !== null && board.cells[piece.cell.id + 7].piece.player.color !== piece.player.color) {
-          board.turn += 1;
-          board.lastPieceThatJumpped = piece;
-          board.cells[piece.cell.id + 7].removePiece()
-          board.cells[piece.cell.id + 7].render()
+          this.removeJumpedPiece(7,piece)
           return true
         }
       }
@@ -174,5 +150,12 @@ class Checkers {
   move(cell, piece) {
     piece.cell.removePiece()
     cell.receivePiece(piece)
+  }
+
+  removeJumpedPiece(direction,piece) {
+    board.turn += 1;
+    board.lastPieceThatJumpped = piece;
+    board.cells[piece.cell.id + direction].removePiece()
+    board.cells[piece.cell.id + direction].render()
   }
 }
