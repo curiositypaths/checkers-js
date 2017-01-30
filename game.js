@@ -53,7 +53,6 @@ class Checkers {
   }
 
   validJump(destination,piece) {
-    debugger
     if (board.lastPieceThatJumpped !== null && piece.player.color === board.lastPieceThatJumpped.player.color && piece.id === board.lastPieceThatJumpped.id ) {
       board.turn -= 1;
     }
