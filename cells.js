@@ -14,9 +14,10 @@ class Cell {
 
   receivePiece(piece) {
     this.piece = piece
+    piece.cell = this
   }
 
-  removePiece(piece) {
+  removePiece() {
     this.piece = null
   }
 

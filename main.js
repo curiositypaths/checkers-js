@@ -21,9 +21,14 @@ function findPiece(element) {
   return playerObject.pieces[id[1]]
 }
 
-$(".piece").draggable({ cursor: "crosshair", revert: "invalid", start: function(){
+function addDragEventListener() {
+  $(".piece").draggable({ cursor: "crosshair", revert: "invalid", start: function(){
           $(this).data("origPosition",$(this).position());
           }});
+}
+addDragEventListener()
+
+
 
   $(".cell").droppable({
     drop: function(event, ui) {
@@ -39,6 +44,8 @@ $(".piece").draggable({ cursor: "crosshair", revert: "invalid", start: function(
         var objCell = board.cells[parseInt(droppedOn[0].getAttribute('id')) - 1]
         dropped.remove()
         findPiece(dropped).cell.render()
+        // Change this to only add to piece that was moved
+        addDragEventListener()
       }
     },
   });
