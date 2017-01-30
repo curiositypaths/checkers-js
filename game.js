@@ -4,7 +4,7 @@ class Checkers {
   }
 
   validMove(destination,piece) {
-    if (this.cellIsOccupied(destination)) {
+    if (this.cellIsOccupied(destination) || piece.player.color !== board.players[board.turn % 2].color) {
       return false
     }
 
@@ -18,13 +18,34 @@ class Checkers {
 
     switch (piece.direction) {
       case 'down':
-        return  ( downRight || downLeft )
+        if ( downRight || downLeft ) {
+          board.turn += 1;
+          board.lastPieceThatJumpped = null;
+          return true
+        }
+        else {
+          return false
+        }
         break
       case 'up':
-        return  (upRight || upLeft)
+        if (upRight || upLeft) {
+          board.turn += 1;
+          board.lastPieceThatJumpped = null;
+          return true
+        }
+        else {
+          return false
+        }
         break
       case 'upanddown':
-        return  (downRight || downLeft || upLeft || upRight )
+        if ( downRight || downLeft || upLeft || upRight ) {
+          board.turn += 1;
+          board.lastPieceThatJumpped = null;
+          return true
+        }
+        else {
+          return false
+        }
         break
       default:
         throw new Error("Perhaps no direction set")
@@ -32,7 +53,12 @@ class Checkers {
   }
 
   validJump(destination,piece) {
-    if (this.cellIsOccupied(destination)) {
+    debugger
+    if (board.lastPieceThatJumpped !== null && piece.player.color === board.lastPieceThatJumpped.player.color && piece.id === board.lastPieceThatJumpped.id ) {
+      board.turn -= 1;
+    }
+
+    if (this.cellIsOccupied(destination) || piece.player.color !== board.players[board.turn % 2].color ) {
       return false
     }
 
@@ -48,7 +74,8 @@ class Checkers {
       case 'down':
         if  ( downLeft ) {
           if ( board.cells[piece.cell.id + 9].piece !== null && board.cells[piece.cell.id + 9].piece.player.color !== piece.player.color) {
-
+            board.turn += 1;
+            board.lastPieceThatJumpped = piece;
             board.cells[piece.cell.id + 9].removePiece()
             board.cells[piece.cell.id + 9].render()
             return true
@@ -56,6 +83,8 @@ class Checkers {
         }
         else if ( downRight ) {
           if ( board.cells[piece.cell.id + 7].piece !== null && board.cells[piece.cell.id + 7].piece.player.color !== piece.player.color) {
+            board.turn += 1;
+            board.lastPieceThatJumpped = piece;
             board.cells[piece.cell.id + 7].removePiece()
             board.cells[piece.cell.id + 7].render()
             return true
@@ -68,6 +97,8 @@ class Checkers {
       case 'up':
       if  ( upLeft ) {
         if ( board.cells[piece.cell.id - 9].piece !== null && board.cells[piece.cell.id - 9].piece.player.color !== piece.player.color) {
+          board.turn += 1;
+          board.lastPieceThatJumpped = piece;
           board.cells[piece.cell.id - 9].removePiece()
           board.cells[piece.cell.id - 9].render()
           return true
@@ -75,6 +106,8 @@ class Checkers {
       }
       else if ( upRight ) {
         if ( board.cells[piece.cell.id - 7].piece !== null && board.cells[piece.cell.id - 7].piece.player.color !== piece.player.color) {
+          board.turn += 1;
+          board.lastPieceThatJumpped = piece;
           board.cells[piece.cell.id - 7].removePiece()
           board.cells[piece.cell.id - 7].render()
           return true
@@ -87,6 +120,8 @@ class Checkers {
       case 'upanddown':
       if  ( upLeft ) {
         if ( board.cells[piece.cell.id - 9].piece !== null && board.cells[piece.cell.id - 9].piece.player.color !== piece.player.color) {
+          board.turn += 1;
+          board.lastPieceThatJumpped = piece;
           board.cells[piece.cell.id - 9].removePiece()
           board.cells[piece.cell.id - 9].render()
           return true
@@ -94,6 +129,8 @@ class Checkers {
       }
       else if ( upRight ) {
         if ( board.cells[piece.cell.id - 7].piece !== null && board.cells[piece.cell.id - 7].piece.player.color !== piece.player.color) {
+          board.turn += 1;
+          board.lastPieceThatJumpped = piece;
           board.cells[piece.cell.id - 7].removePiece()
           board.cells[piece.cell.id - 7].render()
           return true
@@ -101,6 +138,8 @@ class Checkers {
       }
       else if  ( downLeft ) {
         if ( board.cells[piece.cell.id + 9].piece !== null && board.cells[piece.cell.id + 9].piece.player.color !== piece.player.color) {
+          board.turn += 1;
+          board.lastPieceThatJumpped = piece;
           board.cells[piece.cell.id + 9].removePiece()
           board.cells[piece.cell.id + 9].render()
           return true
@@ -108,6 +147,8 @@ class Checkers {
       }
       else if ( downRight ) {
         if ( board.cells[piece.cell.id + 7].piece !== null && board.cells[piece.cell.id + 7].piece.player.color !== piece.player.color) {
+          board.turn += 1;
+          board.lastPieceThatJumpped = piece;
           board.cells[piece.cell.id + 7].removePiece()
           board.cells[piece.cell.id + 7].render()
           return true

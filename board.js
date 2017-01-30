@@ -7,6 +7,8 @@ class Board {
     this.cells = []
     this.generateGrid()
     this.players = []
+    this.turn = 0
+    this.lastPieceThatJumpped = null
   }
 
   addPlayers(playerOne, playerTwo) {
