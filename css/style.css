@@ -1,8 +1,6 @@
 body {
   padding:0px;
   margin:0px;
-  /*background-image: url('images/felt.jpg');
-  background-repeat: repeat;*/
 }
 
 .container {
@@ -26,13 +24,13 @@ body {
 
 .white {
   background: #E5DFD4;
-  background-image: url('images/white.png');
+  background-image: url('../images/white.png');
   background-repeat: repeat;
 
 }
 
 .black {
-  background-image: url('images/black.jpg');
+  background-image: url('../images/black.jpg');
   background-repeat: repeat;
 }
 
@@ -46,26 +44,25 @@ body {
 }
 
 .piece-blue {
- /*background: #3295E6 ;*/
- background-image: url('images/blue_chip.png');
+ background-image: url('../images/blue_chip.png');
  background-repeat: repeat;
  background-size: 100% 100%;
 }
 
 .king-blue {
-  background-image: url('images/blue_king.png');
- background-repeat: repeat;
- background-size: 100% 100%;
+  background-image: url('../images/blue_king.png');
+  background-repeat: repeat;
+  background-size: 100% 100%;
 }
 
 .piece-red {
- background-image: url('images/red_chip.png');
- background-repeat: repeat;
- background-size: 100% 100%;
+  background-image: url('../images/red_chip.png');
+  background-repeat: repeat;
+  background-size: 100% 100%;
 }
 
 .king-red {
-  background-image: url('images/red_king.png');
- background-repeat: repeat;
- background-size: 100% 100%;
+  background-image: url('../images/red_king.png');
+  background-repeat: repeat;
+  background-size: 100% 100%;
 }

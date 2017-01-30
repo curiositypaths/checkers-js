@@ -34,6 +34,17 @@ class Board {
     }
   };
 
+  findPiece(element) {
+    var id = element[0].getAttribute('id').split('-')
+    var playerObject = null
+    for ( let player in this.players) {
+      if (id[0] === this.players[player].color) {
+        playerObject = this.players[player]
+      }
+    }
+    return playerObject.pieces[id[1]]
+  }
+
   placePieces() {
     var count = 0
     for (let i = 0; i < this.players[0].pieces.length * 2; i+=2) {
@@ -71,7 +82,7 @@ class Board {
 
   status(piece, cell) {
     var objCell = board.cells[parseInt(cell[0].getAttribute('id'))]
-    var objPiece = findPiece(piece)
+    var objPiece = this.findPiece(piece)
     if (board.game.validMove(objCell, objPiece) || board.game.validJump(objCell, objPiece)) {
       board.game.move(objCell, objPiece)
       return true
