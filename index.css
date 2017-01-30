@@ -44,6 +44,14 @@ body {
  background: #3295E6 ;
 }
 
+.king-blue {
+  border: 2px solid green;
+}
+
 .piece-red {
  background: #D92626 ;
+}
+
+.king-red {
+  border: 2px solid yellow;
 }

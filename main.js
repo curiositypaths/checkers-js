@@ -32,6 +32,14 @@ addDragEventListener()
       var droppedOn = $(this);
       if( board.status(dropped, droppedOn) ) {
         $(dropped).detach().css({top: 1,left: 1}).appendTo(droppedOn);
+        if (findPiece(dropped).king) {
+          if ( findPiece(dropped).player.color === 'blue' ) {
+            dropped.addClass('king-blue')
+          }
+          else {
+            dropped.addClass('king-red')
+          }
+        }
       }
       else {
         alert("This is not a valid move!")

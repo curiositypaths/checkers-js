@@ -48,7 +48,7 @@ class Checkers {
       case 'down':
         if  ( downLeft ) {
           if ( board.cells[piece.cell.id + 9].piece !== null && board.cells[piece.cell.id + 9].piece.player.color !== piece.player.color) {
-            alert("Steal that piece")
+
             board.cells[piece.cell.id + 9].removePiece()
             board.cells[piece.cell.id + 9].render()
             return true
@@ -56,7 +56,6 @@ class Checkers {
         }
         else if ( downRight ) {
           if ( board.cells[piece.cell.id + 7].piece !== null && board.cells[piece.cell.id + 7].piece.player.color !== piece.player.color) {
-            alert("Steal that piece")
             board.cells[piece.cell.id + 7].removePiece()
             board.cells[piece.cell.id + 7].render()
             return true
@@ -69,7 +68,6 @@ class Checkers {
       case 'up':
       if  ( upLeft ) {
         if ( board.cells[piece.cell.id - 9].piece !== null && board.cells[piece.cell.id - 9].piece.player.color !== piece.player.color) {
-          alert("Steal that piece")
           board.cells[piece.cell.id - 9].removePiece()
           board.cells[piece.cell.id - 9].render()
           return true
@@ -77,7 +75,6 @@ class Checkers {
       }
       else if ( upRight ) {
         if ( board.cells[piece.cell.id - 7].piece !== null && board.cells[piece.cell.id - 7].piece.player.color !== piece.player.color) {
-          alert("Steal that piece")
           board.cells[piece.cell.id - 7].removePiece()
           board.cells[piece.cell.id - 7].render()
           return true
@@ -90,7 +87,6 @@ class Checkers {
       case 'upanddown':
       if  ( upLeft ) {
         if ( board.cells[piece.cell.id - 9].piece !== null && board.cells[piece.cell.id - 9].piece.player.color !== piece.player.color) {
-          alert("Steal that piece")
           board.cells[piece.cell.id - 9].removePiece()
           board.cells[piece.cell.id - 9].render()
           return true
@@ -98,7 +94,6 @@ class Checkers {
       }
       else if ( upRight ) {
         if ( board.cells[piece.cell.id - 7].piece !== null && board.cells[piece.cell.id - 7].piece.player.color !== piece.player.color) {
-          alert("Steal that piece")
           board.cells[piece.cell.id - 7].removePiece()
           board.cells[piece.cell.id - 7].render()
           return true
@@ -106,7 +101,6 @@ class Checkers {
       }
       else if  ( downLeft ) {
         if ( board.cells[piece.cell.id + 9].piece !== null && board.cells[piece.cell.id + 9].piece.player.color !== piece.player.color) {
-          alert("Steal that piece")
           board.cells[piece.cell.id + 9].removePiece()
           board.cells[piece.cell.id + 9].render()
           return true
@@ -114,7 +108,6 @@ class Checkers {
       }
       else if ( downRight ) {
         if ( board.cells[piece.cell.id + 7].piece !== null && board.cells[piece.cell.id + 7].piece.player.color !== piece.player.color) {
-          alert("Steal that piece")
           board.cells[piece.cell.id + 7].removePiece()
           board.cells[piece.cell.id + 7].render()
           return true
