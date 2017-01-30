@@ -92,7 +92,7 @@ class Board {
   status(piece, cell) {
     var objCell = board.cells[parseInt(cell[0].getAttribute('id'))]
     var objPiece = findPiece(piece)
-    if (board.game.validMove(objCell, objPiece)) {
+    if (board.game.validMove(objCell, objPiece) || board.game.validJump(objCell, objPiece)) {
       board.game.move(objCell, objPiece)
       return true
     }
@@ -104,5 +104,3 @@ class Board {
 
 
 }
-
-

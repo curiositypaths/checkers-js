@@ -18,6 +18,7 @@ class Cell {
   }
 
   removePiece() {
+    this.piece.removeCell()
     this.piece = null
   }
 

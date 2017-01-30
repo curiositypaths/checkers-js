@@ -7,8 +7,6 @@ board.addPlayers(playerOne,playerTwo)
 board.placePieces()
 board.renderCells()
 board.whosturn = board.players[0]
-// board.markPiecesAsDraggable()
-// board.markCellsAsDroppable()
 
 function findPiece(element) {
   var id = element[0].getAttribute('id').split('-')
@@ -27,8 +25,6 @@ function addDragEventListener() {
           }});
 }
 addDragEventListener()
-
-
 
   $(".cell").droppable({
     drop: function(event, ui) {
