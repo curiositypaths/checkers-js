@@ -155,6 +155,23 @@ class Checkers {
   removeJumpedPiece(direction,piece) {
     board.turn += 1;
     board.lastPieceThatJumpped = piece;
+
+    if ( board.cells[piece.cell.id + direction].piece && board.cells[piece.cell.id + direction].piece.king ) {
+      if ( board.cells[piece.cell.id + direction].piece.player.color === 'blue' ) {
+        $('#blue-pieces').append("<div id='" + `${board.cells[piece.cell.id + direction].piece.id}` + "' class='piece king-blue'></div>")
+      }
+      else {
+        $('#red-pieces').append("<div id='" + `${board.cells[piece.cell.id + direction].piece.id}` + "' class='piece king-red'></div>")
+      }
+    }
+    else {
+      if ( board.cells[piece.cell.id + direction].piece.player.color === 'blue' ) {
+        $('#blue-pieces').append("<div id='" + `${board.cells[piece.cell.id + direction].piece.id}` + "' class='piece piece-blue'></div>")
+      }
+      else {
+        $('#red-pieces').append("<div id='" + `${board.cells[piece.cell.id + direction].piece.id}` + "' class='piece piece-red'></div>")
+      }
+    }
     board.cells[piece.cell.id + direction].removePiece()
     board.cells[piece.cell.id + direction].render()
   }

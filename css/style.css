@@ -5,6 +5,30 @@ body {
   background-repeat: repeat;
 }
 
+#blue-pieces {
+  margin: 0 auto;
+  height: 100px;
+  width: 1200px;
+  padding-bottom: 50px;
+}
+
+#blue-pieces div {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+#red-pieces {
+  margin: 0 auto;
+  height: 100px;
+  width: 1200px;
+  padding-bottom: 50px;
+}
+
+#red-pieces div {
+  display: inline-block;
+  margin-right: 10px;
+}
+
 .frame {
   width: 900px;
   height: 900px;
@@ -47,8 +71,8 @@ body {
 }
 
 .piece {
- width: 90%;
- height: 90%;
+ width: 90px;
+ height: 90px;
  margin:auto;
  margin-top:5%;
  border-radius: 50%;
