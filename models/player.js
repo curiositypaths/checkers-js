@@ -11,4 +11,14 @@ class Player {
     }
     return piecesContainer
   }
+
+  activePieceCount() {
+    let count = 0
+    for (var i = 0; i < this.pieces.length; i++) {
+      if ( this.pieces[i].cell !== null ) {
+        count += 1
+      }
+    }
+    return count
+  }
 }

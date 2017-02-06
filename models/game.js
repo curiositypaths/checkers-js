@@ -1,8 +1,12 @@
 class Checkers {
   constructor() {
-    this.name = 'Checkers'
+    this.name = 'Checkers',
+    this.board = null
   }
 
+  addBoard(board) {
+    this.board = board
+  }
   validMove(destination,piece) {
     if (this.cellIsOccupied(destination) || piece.player.color !== board.players[board.turn % 2].color) {
       return false
@@ -174,5 +178,9 @@ class Checkers {
     }
     board.cells[piece.cell.id + direction].removePiece()
     board.cells[piece.cell.id + direction].render()
+
+    //new code, TODO need to remove global scope
+    this.board.checkEndOfGame()
+
   }
 }

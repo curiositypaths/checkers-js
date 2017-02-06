@@ -5,6 +5,11 @@ body {
   background-repeat: repeat;
 }
 
+nav li {
+  display: inline-block;
+  list-style: none;
+}
+
 #blue-pieces {
   margin: 0 auto;
   height: 100px;
@@ -102,3 +107,12 @@ body {
   background-repeat: repeat;
   background-size: 100% 100%;
 }
+
+/*Blue goes first
+  You may move your piece one cell diagonally
+
+  Drag/ Click Toggle can be used to change the setting from dragging a piece and dropping it on a cell to clicking a target piece and then clicking the destination cell.  This is helpful if playing on a mobile device
+
+  Sign up/ Sign in to have stat tracking and access to the in-game chat features
+
+  Before starting a game you can select to play against an AI.  Once a game starts you cannot sign in.*/

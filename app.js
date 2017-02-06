@@ -1,7 +1,4 @@
-var game = new Checkers;
-var board = new Board(game);
-var boardController = new BoardController(board);
-
-
-
-
+var game = new Checkers
+var board = new Board(game)
+game.addBoard(board)
+var boardController = new BoardController(board)

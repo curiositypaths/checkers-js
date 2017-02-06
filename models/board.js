@@ -90,8 +90,19 @@ class Board {
 
   }
 
+  checkEndOfGame() {
+    if (this.players[0].activePieceCount() === 0) {
+      this.announceWinner(this.players[1])
+    }
+    else if (this.players[1].activePieceCount() === 0) {
+      this.announceWinner(this.players[0])
+    }
+    return false
+  }
 
-
+  announceWinner(player) {
+    alert(`GameOver! ${player.color} Wins!`)
+  }
 
 
 }
